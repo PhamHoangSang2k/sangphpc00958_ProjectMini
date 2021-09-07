@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+
+<body>
+	<main class="row">
+		<div th:each="p: ${items.content}" class="col-sm-4">
+			<div class="panel panel-primary poly-item text-center">
+				<div class="panel-heading">
+					<div class="panel-title" th:utext="${p.name}"></div>
+				</div>
+				<div class="panel-body">
+					<a th:href="@{|/product/detail/${p.id}|}"> <img
+						th:src="@{|/assets/images/${p.image}|}">
+					</a>
+				</div>
+				<div class="panel-footer text-right">
+					<b class="pull-left">Giá: $[[${p.price}]]</b>
+					<button th:attr="ng-click=@{|cart.add(${p.id})|}"
+						class="btn btn-success"> Đặt hàng
+					</button>
+				</div>
+			</div>
+		</div>
+		<ul class="pager" style="margin: 20px 0;">
+			<li class="page-item"><a th:href="@{/product/list?p=0}">Đầu</a></li>
+			<li class="page-item"><a th:href="@{|/product/list?p=${items.number-1}|}">Trước</a></li>
+			<li class="page-item"><a >[[${items.number+1}]] of [[${items.totalPages}]]</a></li>
+			<li class="page-item"><a
+				th:href="@{|/product/list?p=${items.number+1}|}">Sau</a></li>
+			<li class="page-item"><a th:href="@{|/product/list?p=${items.totalPages-1}|}">Cuối</a></li>
+		</ul>
+	</main>
+</body>
+
+</html>

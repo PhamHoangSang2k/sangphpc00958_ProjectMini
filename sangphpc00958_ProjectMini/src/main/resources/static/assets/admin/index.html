@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAVA 6</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+</head>
+
+<body class="container" ng-app="admin-app">
+    <header class="row">
+        <h1 class="alert alert-success">Website Administration</h1>
+    </header>
+    <div class="row">
+        <nav class="navbar navbar-inverse" style="font-variant: small-caps;">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Trang chủ</a></li>
+                    <li><a href="#!product">Sản Phẩm</a></li>
+                    <li><a href="#!account">Tài khoản</a></li>
+                    <li><a href="/security/logoff">Đăng xuất</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <main>
+    	<div class="ng-view"></div>
+    </main>
+    <footer>
+        <div class="panel panel-default">
+            <div class="panel-body text-center">
+                <h3>FPT Polytecnich &copy; 2021. All rights reserved.</h3>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/admin/admin-app.js"></script>
+    <script src="/assets/admin/product/product-ctrl.js"></script>
+    <script src="/assets/admin/account/account-ctrl.js"></script>
+    <script src="/assets/admin/authority/authority-ctrl.js"></script>
+</body>
+
+</html>

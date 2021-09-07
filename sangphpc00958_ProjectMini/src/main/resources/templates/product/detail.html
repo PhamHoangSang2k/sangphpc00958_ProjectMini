@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+<style type="text/css">
+.img-thumbnail {
+	padding: 10px;
+	height: 100px;
+	max-width: 95%;
+}
+</style>
+<body class="container">
+	<main th:object="${item}" class="poly-item-detail">
+		<div class="row">
+			<div class="panel panel-primary">
+				<div class="panel-body text-center">
+					<img th:src="@{|/assets/images/*{image}|}">
+				</div>
+			</div>
+			<div class="panel panel-primary">
+				<div class="panel-body">
+					<ul>
+						<li th:text="'Tên: ' + *{name}"></li>
+						<li th:text="'Giá: ' + *{price}"></li>
+						<li th:text="'Loại sản phẩm: ' + *{category.name}"></li>
+					</ul>
+				</div>
+				<div class="panel-footer text-right">
+					<button class="btn btn-success">Đặt hàng</button>
+				</div>
+			</div>
+		</div>
+		<div>
+			<fieldset>
+				<legend>Hàng liên quan</legend>
+				<th:block th:each="p:*{category.products}"> <a
+					th:href="@{|/product/detail/${p.id}|}"><img class="img-thumbnail" th:src="@{|/assets/images/${p.image}|}" width="100px"></a> </th:block>
+			</fieldset>
+		</div>
+	</main>
+</body>
+</html>

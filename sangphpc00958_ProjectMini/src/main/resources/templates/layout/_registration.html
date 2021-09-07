@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+<body>
+	<main>
+		<div class="panel panel-primary">
+			<div class="panel-heading">Registration</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="form-group col-sm-6">
+						<div>Username</div>
+						<input ng-model="form.username" class="form-control">
+					</div>
+					<div class="form-group col-sm-6">
+						<div>Password</div>
+						<input type="password" ng-model="form.password"
+							class="form-control">
+					</div>
+					<div class="form-group col-sm-6">
+						<div>Fullname</div>
+						<input ng-model="form.fullname" class="form-control">
+					</div>
+					<div class="form-group col-sm-6">
+						<div>Email</div>
+						<input ng-model="form.email" class="form-control">
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-sm-6">
+						<div>Photo</div>
+						<input type="file" id="photo" class="form-control"
+							onchange="angular.element(this).scope().imageChanged(this.files)">
+					</div>
+				</div>
+			</div>
+			<div class="panel-footer text-right">
+				<button ng-click="dangky()" class="btn btn-success">Đăng ký</button>
+			</div>
+		</div>
+	</main>
+</body>
+</html>
